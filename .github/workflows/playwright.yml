@@ -8,12 +8,6 @@ on:
     branches: [ main ]
           
 jobs:
-  env:
-  - name: create .env file
-    run: |
-        touch .env
-        echo "${{ secrets.ENV }}" > .env
-        cat .env
   clockin:
     timeout-minutes: 60
     runs-on: ubuntu-latest
@@ -23,6 +17,11 @@ jobs:
       # if: github.events.schedule == '25 08 * * 1-5'
       with:
         node-version: lts/*
+    - name: create .env file
+      run: |
+          touch .env
+          echo "${{ secrets.ENV }}" > .env
+          cat .env
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
@@ -44,6 +43,11 @@ jobs:
           # if: github.events.schedule == '31 17 * * 1-5'
           with:
             node-version: lts/*
+        - name: create .env file
+          run: |
+              touch .env
+              echo "${{ secrets.ENV }}" > .env
+              cat .env
         - name: Install dependencies
           run: npm ci
         - name: Install Playwright Browsers
