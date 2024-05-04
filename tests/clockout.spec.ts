@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 test.beforeEach(async ({ page }) => {
   await page.goto('https://account.mekari.com/users/sign_in?client_id=TAL-73645&return_to=L2F1dGg_Y2xpZW50X2lkPVRBTC03MzY0NSZyZXNwb25zZV90eXBlPWNvZGUmc2NvcGU9c3NvOnByb2ZpbGU%3D#!');
-  await page.waitForLoadState('networkidle');
+  await page.waitForLoadState('load');
 });
 
 test.describe('talenta', () => {
