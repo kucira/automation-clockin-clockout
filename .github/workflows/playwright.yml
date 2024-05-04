@@ -30,8 +30,8 @@ jobs:
         retention-days: 1
   clockout:
     timeout-minutes: 60
-    on: ubuntu-latest
-        steps:
+    runs-on: ubuntu-latest
+    steps:
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
           # if: github.events.schedule == '31 17 * * 1-5'
