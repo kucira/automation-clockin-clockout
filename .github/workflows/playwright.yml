@@ -8,13 +8,12 @@ on:
     branches: [ main ]
           
 jobs:
-  name: create .env file
-  run: |
-        - name: 'Create env file'
-          run: |
-            touch .env
-            echo "${{ secrets.ENV }}" > .env
-            cat .env
+  env:
+  - name: create .env file
+    run: |
+        touch .env
+        echo "${{ secrets.ENV }}" > .env
+        cat .env
   clockin:
     timeout-minutes: 60
     runs-on: ubuntu-latest
