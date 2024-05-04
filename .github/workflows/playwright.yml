@@ -1,7 +1,8 @@
 name: Automate Clockin Clockout
 on:
-  # workflow_dispatch:
-  # schedule:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
     # - cron: '25 08 * * 1-5'
     # - cron: '01 17 * * 1-5'
   push:
@@ -40,7 +41,7 @@ jobs:
     steps:
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
-          # if: github.events.schedule == '31 17 * * 1-5'
+          if: github.events.schedule == '*/5 * * * *'
           with:
             node-version: lts/*
         - name: create .env file
