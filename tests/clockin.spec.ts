@@ -21,7 +21,7 @@ test.describe('talenta', () => {
 
     await expect(page.getByRole('button', { name: 'Clock In' })).toBeVisible();
     await page.getByPlaceholder('Text').fill('WFO');
-    // await page.getByRole('button', { name: 'Clock In' }).click();
-    // expect()
+    await page.getByRole('button', { name: 'Clock In' }).click();
+    await expect(page.getByText('Sucessfully Clock In')).toBeVisible();
   });
 });

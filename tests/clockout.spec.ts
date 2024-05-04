@@ -19,7 +19,8 @@ test.describe('talenta', () => {
     await page.waitForLoadState('networkidle');
     await expect(page.getByRole('button', { name: 'Clock Out' })).toBeVisible();
     await page.getByPlaceholder('Text').fill('WFO');
-    // await page.getByRole('button', { name: 'Clock Out' }).click();
+    await page.getByRole('button', { name: 'Clock Out' }).click();
+    await expect(page.getByText('Sucessfully Clock Out')).toBeVisible();
   });
 });
 

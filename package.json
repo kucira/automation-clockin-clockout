@@ -5,6 +5,7 @@
   "scripts": {
     "clockin": "playwright test clockin.spec.ts",
     "clockout": "playwright test clockout.spec.ts",
+    "test": "playwright test test.spec.ts",
     "record-test": "npx playwright codegen --geolocation='-6.23027,-6.23027' https://account.mekari.com/users/sign_in?client_id=TAL-73645&return_to=L2F1dGg_Y2xpZW50X2lkPVRBTC03MzY0NSZyZXNwb25zZV90eXBlPWNvZGUmc2NvcGU9c3NvOnByb2ZpbGU%3D#!"
   },
   "author": "",
