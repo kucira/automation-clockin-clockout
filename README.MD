@@ -1,0 +1,7 @@
+# Automate Clockin Clockout.
+## Step
+- Fork this repo
+- Create secrets variable on repo follow this step
+- go to settings repository -> select secrets and variables -> actions -> New Repository Secret -> create ENV as a name and write the content following env.example file
+- ✨Magic ✨
+
