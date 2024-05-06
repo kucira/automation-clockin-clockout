@@ -19,7 +19,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
-      if: github.event.schedule == '25 01 * * 1-5'
       with:
         node-version: lts/*
     - name: create .env file
@@ -32,6 +31,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run clockin
+      if: github.event.schedule == '25 01 * * 1-5'
       run: npm run clockin
     - uses: actions/upload-artifact@v4
       if: always()
@@ -45,7 +45,6 @@ jobs:
     steps:
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
-          if: github.event.schedule == '30 10 * * 1-5'
           with:
             node-version: lts/*
         - name: create .env file
@@ -58,6 +57,7 @@ jobs:
         - name: Install Playwright Browsers
           run: npx playwright install --with-deps
         - name: Run clockout
+          if: github.event.schedule == '30 10 * * 1-5'
           run: npm run clockout
         - uses: actions/upload-artifact@v4
           if: always()
