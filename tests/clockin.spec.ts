@@ -23,6 +23,6 @@ test.describe('talenta', () => {
     await page.getByPlaceholder('Text').fill('WFO');
     await page.getByRole('button', { name: 'Clock In' }).click();
     // mk-alert-description
-    // await expect(page.getByText('Sucessfully Clock In')).toBeVisible();
+    await expect(page.getByText('Sucessfully Clock In')).toBeVisible();
   });
 });
