@@ -1,7 +1,7 @@
 name: Automate Clockin Clockout
 on:
   schedule:
-    - cron: '55 01 * * *'
+    - cron: '*/10 * * * *'
     - cron: '01 10 * * 0-4'
   # push:
   #   branches: [ main ]
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Every Minutes
-        if: github.event.schedule == '55 01 * * *'
+        if: github.event.schedule == '*/10 * * * *'
         run: echo "This step will always run"
   # clockin:
   #   timeout-minutes: 60
