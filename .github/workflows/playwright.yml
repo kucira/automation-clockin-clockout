@@ -14,32 +14,33 @@ jobs:
   #       if: github.event.schedule == '35 08 * * 1-5'
   #       run: echo "This step will always run 10 08 * * 1-5"
   clockin:
+    if: github.event.schedule == '25 01 * * 1-5'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: create .env file
-      run: |
-          touch .env
-          echo "${{ secrets.ENV }}" > .env
-          cat .env
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run clockin
-      if: github.event.schedule == '25 01 * * 1-5'
-      run: npm run clockin
-    - uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: playwright-report-clockin
-        path: playwright-report/
-        retention-days: 1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: create .env file
+        run: |
+            touch .env
+            echo "${{ secrets.ENV }}" > .env
+            cat .env
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run clockin
+        run: npm run clockin
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-clockin
+          path: playwright-report/
+          retention-days: 1
   clockout:
+    if: github.event.schedule == '30 10 * * 1-5'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -57,7 +58,6 @@ jobs:
         - name: Install Playwright Browsers
           run: npx playwright install --with-deps
         - name: Run clockout
-          if: github.event.schedule == '30 10 * * 1-5'
           run: npm run clockout
         - uses: actions/upload-artifact@v4
           if: always()
