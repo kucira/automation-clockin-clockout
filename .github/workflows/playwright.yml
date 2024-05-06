@@ -1,7 +1,7 @@
 name: Automate Clockin Clockout
 on:
   schedule:
-    - cron: '43 01 * * 1-4'
+    - cron: '47 01 * * 0-4'
     - cron: '01 10 * * 1-4'
   # push:
   #   branches: [ main ]
@@ -11,7 +11,7 @@ jobs:
   #   runs-on: ubuntu-latest
   #   steps:
   #     - name: Every Minutes
-  #       if: github.event.schedule == '*/5 * * * *'
+  #       if: github.event.schedule == '45 01 * * 0-4'
   #       run: echo "This step will always run"
   clockin:
     timeout-minutes: 60
@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
-      if: github.events.schedule == '43 01 * * 0-4'
+      if: github.event.schedule == '47 01 * * 0-4'
       with:
         node-version: lts/*
     - name: create .env file
@@ -45,7 +45,7 @@ jobs:
     steps:
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
-          if: github.events.schedule == '01 10 * * 0-4'
+          if: github.event.schedule == '01 10 * * 0-4'
           with:
             node-version: lts/*
         - name: create .env file
