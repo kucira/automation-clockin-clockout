@@ -1,7 +1,7 @@
 name: Automate Clockin Clockout
 on:
   schedule:
-    - cron: '25 01 * * 0-4'
+    - cron: '37 01 * * 0-4'
     - cron: '01 10 * * 0-4'
   # push:
   #   branches: [ main ]
@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
-      if: github.events.schedule == '25 01 * * 1-5'
+      if: github.events.schedule == '37 01 * * 0-4'
       with:
         node-version: lts/*
     - name: create .env file
@@ -45,7 +45,7 @@ jobs:
     steps:
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4
-          if: github.events.schedule == '01 10 * * 1-5'
+          if: github.events.schedule == '01 10 * * 0-4'
           with:
             node-version: lts/*
         - name: create .env file
