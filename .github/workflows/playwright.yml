@@ -1,7 +1,7 @@
 name: Automate Clockin Clockout
 on:
   schedule:
-    - cron: '47 01 * * 0-4'
+    - cron: '51 01 * * 0-4'
     - cron: '01 10 * * 0-4'
   # push:
   #   branches: [ main ]
