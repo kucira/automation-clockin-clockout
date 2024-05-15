@@ -16,7 +16,7 @@ test.describe('talenta', () => {
     await page.getByLabel('Password').fill(process.env.PASSWORD || "");
     await page.getByRole('button', { name: 'Sign in', exact: true }).click();
     await page.goto('https://hr.talenta.co/live-attendance');
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('load');
     await expect(page.getByRole('button', { name: 'Clock Out' })).toBeVisible();
     await page.getByPlaceholder('Text').fill('WFO');
     await page.getByRole('button', { name: 'Clock Out' }).click();
